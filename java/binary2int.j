@@ -8,7 +8,7 @@ public static int binary2int () {
     digit = bit2int();
     number=0;
     for(; digit != -1; ) {
-      number = number * 2 + digit; 
+      number = (number <<  1) + digit ; 
       digit = bit2int();
     }
 
@@ -22,6 +22,32 @@ public static int binary2int () {
 //           * 1 if '1'
 //           * -1 otherwise
 public static int bit2int() {
+
+    int value; 
+
+    value = -1;
+
+    mips.read_c();
+    value = mips.retval();
+
+    switch(value) {
+      case '0': 
+         value = 0;
+         break;
+
+      case '1': 
+         value = 1;
+         break;
+
+      default:  
+         value = -1;
+         break;
+    }
+    return value;
+}
+
+
+public static int if_bit2int() {
 
     int value; 
 
