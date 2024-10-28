@@ -2,22 +2,26 @@
 
 public static int binary2int () {
 
-    int number;
-    int digit;
-    int neg_one;
+         int number;
+         int digit;
+         int neg_one;
+     
+         digit   = bit2int();
+         number  = 0;
+         neg_one = -1;
 
-    digit   = bit2int();
-    number  = 0;
-    neg_one = -1;
 
+init:    ;
+loop:    for(; digit != neg_one ;) {
+body:      ;
+           number = number << 1;
+           number = number + digit; 
+next:      ;     
+           digit = bit2int();
+         }
+done:    ;
 
-    for(; digit != neg_one ;) {
-      number = number << 1;
-      number = number + digit; 
-      digit = bit2int();
-    }
-
-    return number;
+         return number;
 }
 
 // int bit2int();
