@@ -8,6 +8,19 @@
 
 public static int bit2int() {
 
+    int value; 
 
-    return -1;
+    value = -1;
+
+    mips.read_c();
+    value = mips.retval();
+
+    if ( value == '0')
+       value = 0;
+    else if (value == '1')
+       value = 1;
+    else
+       value = -1;
+
+    return value;
 }
