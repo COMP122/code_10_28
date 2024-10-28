@@ -1,11 +1,26 @@
+
+
+public static int binary2int () {
+
+    int number;
+    int digit;
+
+    digit = bit2int();
+    number=0;
+    for(; digit != -1; ) {
+      number = number * 2 + digit; 
+      digit = bit2int();
+    }
+
+    return number;
+}
+
 // int bit2int();
 //         - reads an ASCII char
 //         - returns 
 //           * 0 if '0'
 //           * 1 if '1'
 //           * -1 otherwise
-
-
 public static int bit2int() {
 
     int value; 
@@ -24,3 +39,4 @@ public static int bit2int() {
 
     return value;
 }
+
