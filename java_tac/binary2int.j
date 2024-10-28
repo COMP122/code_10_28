@@ -4,11 +4,16 @@ public static int binary2int () {
 
     int number;
     int digit;
+    int neg_one;
 
-    digit = bit2int();
-    number=0;
-    for(; digit != -1; ) {
-      number = number * 2 + digit; 
+    digit   = bit2int();
+    number  = 0;
+    neg_one = -1;
+
+
+    for(; digit != neg_one ;) {
+      number = number << 1;
+      number = number + digit; 
       digit = bit2int();
     }
 
@@ -30,12 +35,21 @@ public static int bit2int() {
     mips.read_c();
     value = mips.retval();
 
-    if ( value == '0')
-       value = 0;
-    else if (value == '1')
-       value = 1;
-    else
-       value = -1;
+    switch (value) {
+       case 0:   mips.next("1");
+                 value = 0;
+                 break;
+                 mips.merge("1");
+
+       case 1:   mips.next("default");
+                 value = 1;
+                 break;
+                 mips.merge("default");
+
+       default:  mips.next();
+                 value = -1;
+                 break;
+    }
 
     return value;
 }
